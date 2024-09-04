@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>count-down</title>
+</head>
+
+<style>
+    h2 {
+        font-size: 32px;
+    }
+
+    input[type="button"] {
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 18px;
+    }
+
+    span {
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <div align="center">
+        <h2>counter</h2>
+        <input type="button" onclick="lessCount()" value="-">
+        <span id="count">0</span>
+        <input type="button" onclick="maxCount()" value="+">
+        <br><br>
+        <input type="button" onclick="reset()" value="Reset">
+    </div>
+
+    <script>
+
+        let count = document.getElementById("count")
+
+        const lessCount = () => {
+            count.innerText = parseInt(count.innerText) - 1;
+        }
+
+        const maxCount = () => {
+            count.innerText = parseInt(count.innerText) + 1;
+        }
+
+        const reset = () => {
+            count.innerText = 0;
+        }
+
+
+    </script>
+</body>
+
+</html>

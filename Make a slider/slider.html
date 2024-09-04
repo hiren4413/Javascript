@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Records</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .filters {
+            margin-bottom: 20px;
+        }
+
+        .total-salary {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mb-4">Employee Records</h1>
+
+        <div class="filters">
+            <label for="city">City:</label>
+            <select id="city" class="form-select">
+                <option value="">All</option>
+                <option value="surat">Surat</option>
+                <option value="vadodara">Vadodara</option>
+                <option value="vapi">Vapi</option>
+                <option value="rajkot">Rajkot</option>
+            </select>
+
+            <label for="salary" class="mt-2">Salary:</label>
+            <select id="salary" class="form-select">
+                <option value="">All</option>
+                <option value="20000">20,000</option>
+                <option value="22000">22,000</option>
+                <option value="25000">25,000</option>
+                <option value="30000">30,000</option>
+            </select>
+
+            <label for="department" class="mt-2">Department:</label>
+            <select id="department" class="form-select">
+                <option value="">All</option>
+                <option value="programming">Programming</option>
+                <option value="ui/ux">UI/UX</option>
+                <option value="bde">BDE</option>
+                <option value="webdesign">Web Design</option>
+            </select>
+
+            <label for="designation" class="mt-2">Designation:</label>
+            <select id="designation" class="form-select">
+                <option value="">All</option>
+                <option value="senior">Senior</option>
+                <option value="junior">Junior</option>
+                <option value="tl">Team Lead</option>
+                <option value="manager">Manager</option>
+            </select>
+        </div>
+
+        <div class="total-salary">
+            Total Salary: <span id="total">0</span>
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>City</th>
+                    <th>Salary</th>
+                    <th>Designation</th>
+                    <th>Department</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Records will be shown here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const employees = [
+            { id: 1, name: "Ashish", email: "ashu@gmail.com", phone: "1121212", city: "surat", salary: 20000, desig: "senior", dept: "programming" },
+            { id: 2, name: "Hari", email: "hari@gmail.com", phone: "5454545", city: "surat", salary: 22000, desig: "junior", dept: "ui/ux" },
+            { id: 3, name: "Raj", email: "raj@gmail.com", phone: "454545", city: "vadodara", salary: 25000, desig: "junior", dept: "bde" },
+            { id: 4, name: "Deep", email: "deep@gmail.com", phone: "565656", city: "vapi", salary: 30000, desig: "tl", dept: "webdesign" },
+            { id: 5, name: "Jay", email: "jay@gmail.com", phone: "5565656", city: "rajkot", salary: 20000, desig: "senior", dept: "programming" },
+            { id: 6, name: "Ajay", email: "ajay@gmail.com", phone: "5565656", city: "vapi", salary: 25000, desig: "manager", dept: "ui/ux" }
+        ];
+
+        function displayTable(filteredEmployees) {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = '';
+
+            let totalSalary = 0;
+
+            filteredEmployees.forEach(emp => {
+                totalSalary += emp.salary;
+
+                const row = `<tr>
+                    <td>${emp.id}</td>
+                    <td>${emp.name}</td>
+                    <td>${emp.email}</td>
+                    <td>${emp.phone}</td>
+                    <td>${emp.city}</td>
+                    <td>${emp.salary}</td>
+                    <td>${emp.desig}</td>
+                    <td>${emp.dept}</td>
+                </tr>`;
+
+                tableBody.innerHTML += row;
+            });
+
+            document.getElementById('total').innerText = totalSalary;
+        }
+
+        function filterEmployees() {
+            const city = document.getElementById('city').value;
+            const salary = document.getElementById('salary').value;
+            const department = document.getElementById('department').value;
+            const designation = document.getElementById('designation').value;
+
+            const filtered = employees.filter(emp => {
+                return (!city || emp.city === city) &&
+                    (!salary || emp.salary == salary) &&
+                    (!department || emp.dept === department) &&
+                    (!designation || emp.desig === designation);
+            });
+
+            displayTable(filtered);
+        }
+
+        document.getElementById('city').addEventListener('change', filterEmployees);
+        document.getElementById('salary').addEventListener('change', filterEmployees);
+        document.getElementById('department').addEventListener('change', filterEmployees);
+        document.getElementById('designation').addEventListener('change', filterEmployees);
+
+        // Initial display
+        displayTable(employees);
+    </script>
+</body>
+
+</html>
