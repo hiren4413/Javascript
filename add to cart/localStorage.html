@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add to Cart</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/all.css" />
+
+    <!-- bootstrap -->
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+      <div class="offcanvas offcanvas-start" style="width:1000px;" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Your Cart</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Srno</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Price</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Action</th>
+            <th scope="col">Total</th>
+
+          </tr>
+        </thead>
+        <tbody id="carts">
+
+        </tbody>
+      </table>
+      <h3 id="finalAmount"></h3>
+    </div>
+  </div>
+</div>
+
+        
+    <section id="header">
+      <a href="#"><img src="https://i.postimg.cc/x8ncvFjr/logo.png" /></a>
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li  style="cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+            <a id="lg-bag"
+              ><i class="fa-solid fa-cart-shopping"></i></a>
+            <span id="quantity"></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+      <h2>Featured Products</h2>
+      <p>Summer Collection New Modern Design</p>
+      <div class="pro-container" id="product">
+        
+      </div>
+    </section>
+
+
+    <!-- <div align="center">
+        <h2>Add User</h2>
+        <form>
+            <input type="hidden" id="editId">
+            Name : <input type="text" id="name">
+            phone : <input type="text" id="phone">
+            <br><br>
+            <input type="button" id="add" onclick="showUser()" value="Submit">
+            <input type="button" id="edit" onclick="changeUser()" value="Change">
+        </form>
+        
+        <hr><h2>View User</h2>
+        <table border="1" cellspacing="1" cellpadding="5">
+            <thead>
+                <tr>
+                    <th>Sr. No</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                
+            </tbody>
+        </table>
+    </div> -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./localStorage.js"></script>
+  </body>
+</html>
