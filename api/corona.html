@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div align="center">
+        <h2>Corona Data</h2>
+        <table border="1">
+            <thead>
+              <th>index</th>
+              <th>Last Updated</th>
+              <th>Hospitals</th>
+              <th>Beds</th>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+    </div>
+    <script>
+      let api = () => {
+        fetch("https://api.steinhq.com/v1/storages/5e732accb88d3d04ae0815ae/StateWiseHealthCapacity")
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            tr=""
+            data.map((val,index)=>{
+                tr+=` 
+                    <tr>
+                        <td>${++index}</td>
+                        <td>${val.LastUpdated}</td>
+                        <td>${val.RuralHospitalsCount}</td>
+                        <td>${val.RuralBeds}</td>
+                    </tr>
+                `
+            })
+            document.getElementById("tbody").innerHTML=tr
+          });
+      };
+      api();    
+    </script>
+  </body>
+</html>
