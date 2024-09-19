@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>Employee Information</title>
+  <link rel="stylesheet" href="./crud.css">
+</head>
+
+<body>
+  <h1>Employee information</h1>
+  <hr /><br />
+  <form>
+    <table>
+      <tr>
+        <td valign="top">
+          <fieldset id="bg_table">
+            <table id="add_employee_table">
+              <tr>
+                <th colspan="2">Details</th>
+              </tr>
+              <tr>
+                <td>First name</td>
+                <td>
+                  <input type="text" id="first_name" />
+                  <input type="hidden" id="userId" />
+                </td>
+              </tr>
+              <tr>
+                <td>Last name</td>
+                <td>
+                  <input type="text" id="last_name" />
+                </td>
+              </tr>
+              <tr>
+                <td>Age</td>
+                <td>
+                  <input type="number" id="Age" />
+                </td>
+              </tr>
+              <tr>
+                <td>Position</td>
+                <td>
+                  <input type="text" id="position" />
+                </td>
+              </tr>
+              <tr>
+                <td>Salary</td>
+                <td>
+                  <input type="number" id="salary" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="button" id="submit" value="Add employee" onclick="addRecord()" />
+                  <input type="button" id="edit" value="Edit employee" onclick="editRecord()" />
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+        </td>
+
+        <td valign="top" width="100%">
+          <fieldset>
+            <table id="employee_table" border="1" cellpadding="5px" style="border-collapse:collapse" width="100%">
+              <thead>
+                <tr>
+                  <th>
+                    First Name
+                  </th>
+                  <th>
+                    Last Name
+                  </th>
+                  <th>
+                    Age
+                  </th>
+                  <th>
+                    Position
+                  </th>
+                  <th>
+                    Salary
+                  </th>
+                  <th colspan="2">
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+
+              </tbody>
+            </table>
+          </fieldset>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <script src="./crud.js"></script>
+</body>
+
+</html>
